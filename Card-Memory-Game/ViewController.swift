@@ -11,6 +11,7 @@ when they click start change all things to black or invisible or something and w
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var fakeButton: UIButton!
     @IBOutlet weak var image0: UIButton!
     @IBOutlet weak var image1: UIButton!
     @IBOutlet weak var image2: UIButton!
@@ -29,7 +30,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     lazy var prevButtonImage: UIImage = #imageLiteral(resourceName: "playingCardAppPic")
-    lazy var prevButtonName = startButton
+    lazy var prevButtonName = fakeButton
     var score = 0
     var timer: Timer?
     var totalTime = 60
@@ -41,7 +42,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         buttonList = [image0, image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11]
-        prevButtonName = startButton
+        prevButtonName = fakeButton
 
     }
     
@@ -85,7 +86,8 @@ class ViewController: UIViewController {
 
     @IBAction func imagePicTapped(_ sender: UIButton) {
         //show image
-        sender.backgroundColor = .white
+        sender.setBackgroundImage(#imageLiteral(resourceName: "spongebobBikiniBottomPic"), for: .normal)
+        //sender.backgroundColor = .white
         sender.imageView?.alpha = 1.0
         
         //check equality of tapped image with previously tapped image
@@ -95,7 +97,7 @@ class ViewController: UIViewController {
 //            prevButtonName?.imageView?.alpha = 0.0
             sender.setImage(#imageLiteral(resourceName: "checkAppPic"), for: .normal)
             //sender.backgroundColor = .black
-            prevButtonName = startButton
+            prevButtonName = fakeButton
             prevButtonImage = #imageLiteral(resourceName: "checkAppPic")
             
             score += 1
@@ -109,8 +111,10 @@ class ViewController: UIViewController {
                 }
             }
         } else {
+            
+            prevButtonName?.setBackgroundImage(#imageLiteral(resourceName: "playingCardAppPic"), for: .normal)
             prevButtonName?.imageView?.alpha = 0.0
-            prevButtonName?.backgroundColor = .green
+            //prevButtonName?.backgroundColor = .green
             prevButtonName = sender.self
             prevButtonImage = sender.imageView?.image ?? #imageLiteral(resourceName: "playingCardAppPic")
         }
@@ -136,9 +140,10 @@ class ViewController: UIViewController {
         tempPicList.shuffle()
         for button in buttonList {
             button.setImage(tempPicList.popLast(), for: .normal)
+            
+            //button.backgroundColor = #colorLiteral(red: 0.4168206453, green: 0.9279285073, blue: 0.5124707818, alpha: 1)
+            button.setBackgroundImage(#imageLiteral(resourceName: "playingCardAppPic"), for: .normal)
             button.imageView?.alpha = 0.0
-            button.backgroundColor = .green
-            //button.setBackgroundImage(#imageLiteral(resourceName: "playingCardAppPic"), for: .normal)
             tempPicList.shuffle()
         }
 

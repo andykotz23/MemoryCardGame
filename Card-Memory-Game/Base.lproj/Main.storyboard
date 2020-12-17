@@ -154,7 +154,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="72" id="WUx-2D-x9r"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -206,6 +206,11 @@
                                     <action selector="imagePicTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xj2-xf-9Wg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="701-Ts-lkf">
+                                <rect key="frame" x="432" y="685" width="20" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
@@ -223,6 +228,7 @@
                     </view>
                     <connections>
                         <outlet property="clicksLeftLabel" destination="mUw-L9-QmW" id="sIj-9h-rS6"/>
+                        <outlet property="fakeButton" destination="701-Ts-lkf" id="W1I-Gp-wgC"/>
                         <outlet property="image0" destination="qGX-Pb-Msb" id="20U-jm-ptT"/>
                         <outlet property="image1" destination="KYb-vC-FwZ" id="gMV-Qa-Ucq"/>
                         <outlet property="image10" destination="ahQ-Fn-Jen" id="auS-Hi-b8L"/>
